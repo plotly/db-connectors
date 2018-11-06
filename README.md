@@ -13,8 +13,6 @@ If you want to read more about connecting Falcon to your data warehouse, [help.p
 
 ## Contributing
 
-
-
 We want to encourage a warm, welcoming, and safe environment for contributing to this project. See the [code of conduct](CODE_OF_CONDUCT.md) for more information.
 
 ## Contact
@@ -32,3 +30,7 @@ We want to encourage a warm, welcoming, and safe environment for contributing to
 ## License
 
 Code released under the MIT © [License](https://github.com/plotly/falcon-sql-client/blob/master/LICENSE).
+
+## Questions for Review
+
+1. What is the best strategy for logging?
