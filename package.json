@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "lint": "eslint src *.js --ext .js",
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/*.js",    
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/*.js",
     "test-unit-csv": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.csv.spec.js",
     "test-unit-parse": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/parse.spec.js"
   },
@@ -47,6 +47,7 @@
     "alasql": "^0.4.11",
     "aws-sdk": "^2.156.0",
     "csv-parse": "^2.5.0",
+    "fs": "0.0.1-security",
     "ibm_db": "^2.3.0",
     "moment": "^2.22.2",
     "mysql": "^2.15.0",
