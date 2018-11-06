@@ -1,5 +1,6 @@
 
 
+/**
 const Sql = require('./datasources/sql.js');
 const Elasticsearch = require('./datasources/Elasticsearch');
 const S3 = require('./datasources/S3');
@@ -11,9 +12,10 @@ const DataWorld = require('./datasources/dataworld');
 const DatastoreMock = require('./datasources/datastoremock');
 const Athena = require('./datasources/athena');
 const BigQuery = require('./datasources/bigquery');
+*/
 
-const CSV = require('./csv');
-const Oracle = require('./oracle.js');
+const CSV = require('./datastores/csv');
+// const Oracle = require('./oracle.js');
 
 /*
  * Switchboard to all of the different types of connections
@@ -36,12 +38,15 @@ const Oracle = require('./oracle.js');
 
 function getDatastoreClient(connection) {
     // handle test mode:
-    if (connection.mock) {
+    /**
+     if (connection.mock) {
         return DatastoreMock;
     }
+    */
 
     const {dialect} = connection;
 
+    /**
     if (dialect === 'elasticsearch') {
         return Elasticsearch;
     } else if (dialect === 's3') {
@@ -65,7 +70,11 @@ function getDatastoreClient(connection) {
     } else if (dialect === 'bigquery') {
         return BigQuery;
     }
-    return Sql;
+    return Sql;*/
+
+    if (dialect === 'csv') {
+        return CSV;
+    }
 }
 
 /**
