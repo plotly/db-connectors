@@ -17,6 +17,7 @@ const Oracle = require('./oracle.js');
 */
 
 const CSV = require('./datastores/csv');
+const Elasticsearch = require('./datastores/elasticsearch');
 const Sql = require('./datastores/sql.js');
 
 
@@ -77,6 +78,8 @@ function getDatastoreClient(connection) {
 
     if (dialect === DIALECTS.CSV) {
         return CSV;
+    } else if (dialect === DIALECTS.ELASTICSEARCH) {
+        return Elasticsearch;
     }
 
     return Sql;

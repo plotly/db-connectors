@@ -7,7 +7,8 @@
     "lint": "eslint src *.js --ext .js",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/*.js",
     "test-unit-csv": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.csv.spec.js",
-    "test-unit-parse": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/parse.spec.js"
+    "test-unit-parse": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/parse.spec.js",
+    "test-unit-elasticsearch-v2": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.elasticsearch-v2.spec.js"
   },
   "repository": {
     "type": "git",
