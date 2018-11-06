@@ -78,7 +78,7 @@ function getDatastoreClient(connection) {
  *       rows: [...]
  *   }
  */
-export function query(queryStatement, connection) {
+function query(queryStatement, connection) {
     return getDatastoreClient(connection).query(queryStatement, connection);
 }
 
@@ -87,7 +87,7 @@ export function query(queryStatement, connection) {
  * @param {object} connection Connection object
  * @returns {Promise} that resolves when the connection succeeds
  */
-export function connect(connection) {
+function connect(connection) {
     return getDatastoreClient(connection).connect(connection);
 }
 
@@ -96,7 +96,7 @@ export function connect(connection) {
  * @param {object} connection Connection object
  * @returns {Promise} that resolves when the connection succeeds
  */
-export function disconnect(connection) {
+function disconnect(connection) {
     const client = getDatastoreClient(connection);
     return (client.disconnect) ?
         client.disconnect(connection) :
@@ -114,7 +114,7 @@ export function disconnect(connection) {
  *       rows: [[table_name, column_name, data_type], ...]
  *   }
  */
-export function schemas(connection) {
+function schemas(connection) {
     return getDatastoreClient(connection).schemas(connection);
 }
 
@@ -125,7 +125,7 @@ export function schemas(connection) {
  * This can have flexible meaning for other datastores. E.g.:
  * for elasticsearch, this means return the available "documents" per an "index"
  */
-export function tables(connection) {
+function tables(connection) {
     return getDatastoreClient(connection).tables(connection);
 }
 
@@ -138,7 +138,7 @@ export function tables(connection) {
  */
 // TODO - I think specificity is better here, just name this to "keys"
 // and if we ever add local file stuff, add a new function like "files".
-export function files(connection) {
+function files(connection) {
     return getDatastoreClient(connection).files(connection);
 }
 
@@ -148,7 +148,7 @@ export function files(connection) {
 /*
  * Return a list of configured Apache Drill storage plugins
  */
-export function storage(connection) {
+function storage(connection) {
     return getDatastoreClient(connection).storage(connection);
 }
 
@@ -159,21 +159,22 @@ export function storage(connection) {
  * name or the storage connection and then return the available files for
  * that plugin.
  */
-export function listS3Files(connection) {
+function listS3Files(connection) {
     return getDatastoreClient(connection).listS3Files(connection);
 }
 
-export function elasticsearchMappings(connection) {
+function elasticsearchMappings(connection) {
     return getDatastoreClient(connection).elasticsearchMappings(connection);
 }
 
 module.exports = {
+    connect,
+    disconnect,
     elasticsearchMappings,
-    listS3Files,
-    storage,
-    query,
     files,
-    tables,
+    listS3Files,
+    query,
     schemas,
-    connect
-}
+    storage,
+    tables
+};
