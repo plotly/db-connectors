@@ -2,9 +2,6 @@
 
 const {DIALECTS} = require('./common/constants');
 /**
-const Sql = require('./datasources/sql.js');
-const Elasticsearch = require('./datasources/Elasticsearch');
-const S3 = require('./datasources/S3');
 const ApacheDrill = require('./datasources/ApacheDrill');
 const IbmDb2 = require('./datasources/ibmdb2');
 const ApacheLivy = require('./common/livy');
@@ -19,6 +16,7 @@ const Oracle = require('./oracle.js');
 const CSV = require('./datastores/csv');
 const Elasticsearch = require('./datastores/elasticsearch');
 const Sql = require('./datastores/sql.js');
+const S3 = require('./datasources/S3');
 
 
 /*
@@ -80,6 +78,8 @@ function getDatastoreClient(connection) {
         return CSV;
     } else if (dialect === DIALECTS.ELASTICSEARCH) {
         return Elasticsearch;
+    } else if (dialect === DIALECTS.S3) {
+        return S3;
     }
 
     return Sql;
