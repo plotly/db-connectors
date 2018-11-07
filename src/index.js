@@ -2,7 +2,7 @@
 
 const {DIALECTS} = require('./common/constants');
 /**
-const ApacheDrill = require('./datasources/ApacheDrill');
+
 const IbmDb2 = require('./datasources/ibmdb2');
 const ApacheLivy = require('./common/livy');
 const ApacheImpala = require('./datasources/impala');
@@ -12,11 +12,11 @@ const Athena = require('./datasources/athena');
 const BigQuery = require('./datasources/bigquery');
 const Oracle = require('./oracle.js');
 */
-
+const ApacheDrill = require('./datastores/apachedrill');
 const CSV = require('./datastores/csv');
 const Elasticsearch = require('./datastores/elasticsearch');
 const Sql = require('./datastores/sql.js');
-const S3 = require('./datasources/S3');
+const S3 = require('./datastores/S3');
 
 
 /*
