@@ -13,7 +13,9 @@
     "test-unit-elasticsearch-v5": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.elasticsearch-v5.spec.js",
     "test-unit-ibmdb": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.ibmdb.spec.js",
     "test-unit-impala": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 9000 --exit test/datastores.impala.spec.js",
-    "test-unit-parse": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/parse.spec.js"
+    "test-unit-livy": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 --exit test/datastores.livy.spec.js",
+    "test-unit-parse": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/parse.spec.js",
+    "test-unit-oracle": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.oracle.spec.js"
   },
   "repository": {
     "type": "git",

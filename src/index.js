@@ -1,19 +1,16 @@
 
 
 const {DIALECTS} = require('./common/constants');
-/**
 
-const ApacheLivy = require('./common/livy');
-
-const Oracle = require('./oracle.js');
-*/
 const ApacheDrill = require('./datastores/apachedrill');
 const ApacheImpala = require('./datastores/impala');
+const ApacheLivy = require('./datastores/livy');
 const BigQuery = require('./datastores/bigquery');
 const CSV = require('./datastores/csv');
 const DataWorld = require('./datastores/dataworld');
-const IbmDb2 = require('./datastores/ibmdb2');
 const Elasticsearch = require('./datastores/elasticsearch');
+const IbmDb2 = require('./datastores/ibmdb2');
+const Oracle = require('./datastores/oracle.js');
 const Sql = require('./datastores/sql.js');
 const S3 = require('./datastores/S3');
 
@@ -39,40 +36,18 @@ const S3 = require('./datastores/S3');
 
 function getDatastoreClient(connection) {
     // handle test mode:
-    /**
      if (connection.mock) {
         return DatastoreMock;
     }
-    */
 
     const {dialect} = connection;
-
-    /**
-    if (dialect === 'elasticsearch') {
-        return Elasticsearch;
-    } else if (dialect === 's3') {
-        return S3;
-    } else if (dialect === 'apache spark') {
-        return ApacheLivy;
-    } else if (dialect === 'apache impala') {
-        return ApacheImpala;
-    } else if (dialect === 'ibm db2') {
-        return IbmDb2;
-    } else if (dialect === 'data.world') {
-        return DataWorld;
-    } else if (dialect === 'athena') {
-        return Athena;
-    } else if (dialect === 'oracle') {
-        return Oracle;
-    } else if (dialect === 'bigquery') {
-        return BigQuery;
-    }
-    return Sql;*/
 
     if (dialect === DIALECTS.APACHE_DRILL) {
         return ApacheDrill;
     } else if (dialect === DIALECTS.APACHE_IMPALA) {
         return ApacheImpala;
+    } else if (dialect === DIALECTS.APACHE_SPARK) {
+        return ApacheLivy;
     } else if (dialect === DIALECTS.BIGQUERY) {
         return BigQuery;
     } else if (dialect === DIALECTS.CSV) {
@@ -83,6 +58,8 @@ function getDatastoreClient(connection) {
         return DataWorld;
     } else if (dialect === DIALECTS.IBM_DB2) {
         return IbmDb2;
+    } else if (dialect === DIALECTS.ORACLE) {
+        return Oracle;
     } else if (dialect === DIALECTS.S3) {
         return S3;
     }
