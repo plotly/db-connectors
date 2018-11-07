@@ -9,6 +9,7 @@ const Oracle = require('./oracle.js');
 */
 const ApacheDrill = require('./datastores/apachedrill');
 const ApacheImpala = require('./datastores/impala');
+const BigQuery = require('./datastores/bigquery');
 const CSV = require('./datastores/csv');
 const DataWorld = require('./datastores/dataworld');
 const IbmDb2 = require('./datastores/ibmdb2');
@@ -72,6 +73,8 @@ function getDatastoreClient(connection) {
         return ApacheDrill;
     } else if (dialect === DIALECTS.APACHE_IMPALA) {
         return ApacheImpala;
+    } else if (dialect === DIALECTS.BIGQUERY) {
+        return BigQuery;
     } else if (dialect === DIALECTS.CSV) {
         return CSV;
     } else if (dialect === DIALECTS.ELASTICSEARCH) {
