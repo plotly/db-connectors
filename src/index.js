@@ -3,16 +3,12 @@
 const {DIALECTS} = require('./common/constants');
 /**
 
-const IbmDb2 = require('./datasources/ibmdb2');
 const ApacheLivy = require('./common/livy');
-const ApacheImpala = require('./datasources/impala');
-const DataWorld = require('./datasources/dataworld');
-const DatastoreMock = require('./datasources/datastoremock');
-const Athena = require('./datasources/athena');
-const BigQuery = require('./datasources/bigquery');
+
 const Oracle = require('./oracle.js');
 */
 const ApacheDrill = require('./datastores/apachedrill');
+const ApacheImpala = require('./datastores/impala');
 const CSV = require('./datastores/csv');
 const DataWorld = require('./datastores/dataworld');
 const IbmDb2 = require('./datastores/ibmdb2');
@@ -55,8 +51,6 @@ function getDatastoreClient(connection) {
         return Elasticsearch;
     } else if (dialect === 's3') {
         return S3;
-    } else if (dialect === 'apache drill') {
-        return ApacheDrill;
     } else if (dialect === 'apache spark') {
         return ApacheLivy;
     } else if (dialect === 'apache impala') {
@@ -76,6 +70,8 @@ function getDatastoreClient(connection) {
 
     if (dialect === DIALECTS.APACHE_DRILL) {
         return ApacheDrill;
+    } else if (dialect === DIALECTS.APACHE_IMPALA) {
+        return ApacheImpala;
     } else if (dialect === DIALECTS.CSV) {
         return CSV;
     } else if (dialect === DIALECTS.ELASTICSEARCH) {

@@ -5,13 +5,14 @@
   "main": "./src/index.js",
   "scripts": {
     "lint": "eslint src *.js --ext .js",
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/*.js",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 --exit test/*.js",
     "test-unit-athena": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.athena.spec.js",
     "test-unit-csv": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.csv.spec.js",
     "test-unit-dataworld": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.dataworld.spec.js",
     "test-unit-elasticsearch-v2": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.elasticsearch-v2.spec.js",
     "test-unit-elasticsearch-v5": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.elasticsearch-v5.spec.js",
     "test-unit-ibmdb": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.ibmdb.spec.js",
+    "test-unit-impala": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 9000 --exit test/datastores.impala.spec.js",
     "test-unit-parse": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/parse.spec.js"
   },
   "repository": {
@@ -57,6 +58,7 @@
     "moment": "^2.22.2",
     "mysql": "^2.15.0",
     "node-fetch": "^2.2.1",
+    "node-impala": "^2.0.4",
     "oracledb": "https://github.com/oracle/node-oracledb/releases/download/v2.2.0/oracledb-src-2.2.0.tgz",
     "papaparse": "^4.6.1",
     "pg": "^4.5.5",
