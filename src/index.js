@@ -14,6 +14,7 @@ const Oracle = require('./oracle.js');
 */
 const ApacheDrill = require('./datastores/apachedrill');
 const CSV = require('./datastores/csv');
+const DataWorld = require('./datasources/dataworld');
 const Elasticsearch = require('./datastores/elasticsearch');
 const Sql = require('./datastores/sql.js');
 const S3 = require('./datastores/S3');
@@ -59,8 +60,6 @@ function getDatastoreClient(connection) {
         return ApacheLivy;
     } else if (dialect === 'apache impala') {
         return ApacheImpala;
-    } else if (dialect === 'csv') {
-        return CSV;
     } else if (dialect === 'ibm db2') {
         return IbmDb2;
     } else if (dialect === 'data.world') {
@@ -74,10 +73,14 @@ function getDatastoreClient(connection) {
     }
     return Sql;*/
 
-    if (dialect === DIALECTS.CSV) {
+    if (dialect === DIALECTS.APACHE_DRILL) {
+        return ApacheDrill;
+    } else if (dialect === DIALECTS.CSV) {
         return CSV;
     } else if (dialect === DIALECTS.ELASTICSEARCH) {
         return Elasticsearch;
+    } else if (dialect === DIALECTS.DATA_WORLD) {
+        return DataWorld;
     } else if (dialect === DIALECTS.S3) {
         return S3;
     }
