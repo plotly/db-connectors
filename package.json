@@ -11,6 +11,7 @@
     "test-unit-dataworld": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.dataworld.spec.js",
     "test-unit-elasticsearch-v2": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.elasticsearch-v2.spec.js",
     "test-unit-elasticsearch-v5": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.elasticsearch-v5.spec.js",
+    "test-unit-ibmdb": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores.ibmdb.spec.js",
     "test-unit-parse": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/parse.spec.js"
   },
   "repository": {

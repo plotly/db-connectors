@@ -14,7 +14,8 @@ const Oracle = require('./oracle.js');
 */
 const ApacheDrill = require('./datastores/apachedrill');
 const CSV = require('./datastores/csv');
-const DataWorld = require('./datasources/dataworld');
+const DataWorld = require('./datastores/dataworld');
+const IbmDb2 = require('./datastores/ibmdb2');
 const Elasticsearch = require('./datastores/elasticsearch');
 const Sql = require('./datastores/sql.js');
 const S3 = require('./datastores/S3');
@@ -81,6 +82,8 @@ function getDatastoreClient(connection) {
         return Elasticsearch;
     } else if (dialect === DIALECTS.DATA_WORLD) {
         return DataWorld;
+    } else if (dialect === DIALECTS.IBM_DB2) {
+        return IbmDb2;
     } else if (dialect === DIALECTS.S3) {
         return S3;
     }
