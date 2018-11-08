@@ -1,24 +1,18 @@
 
 
 const {DIALECTS} = require('./common/constants');
-/**
-const Sql = require('./datasources/sql.js');
-const Elasticsearch = require('./datasources/Elasticsearch');
-const S3 = require('./datasources/S3');
-const ApacheDrill = require('./datasources/ApacheDrill');
-const IbmDb2 = require('./datasources/ibmdb2');
-const ApacheLivy = require('./common/livy');
-const ApacheImpala = require('./datasources/impala');
-const DataWorld = require('./datasources/dataworld');
-const DatastoreMock = require('./datasources/datastoremock');
-const Athena = require('./datasources/athena');
-const BigQuery = require('./datasources/bigquery');
-const Oracle = require('./oracle.js');
-*/
 
+const ApacheDrill = require('./datastores/apachedrill');
+const ApacheImpala = require('./datastores/impala');
+const ApacheLivy = require('./datastores/livy');
+const BigQuery = require('./datastores/bigquery');
 const CSV = require('./datastores/csv');
+const DataWorld = require('./datastores/dataworld');
 const Elasticsearch = require('./datastores/elasticsearch');
+const IbmDb2 = require('./datastores/ibmdb2');
+const Oracle = require('./datastores/oracle.js');
 const Sql = require('./datastores/sql.js');
+const S3 = require('./datastores/S3');
 
 
 /*
@@ -42,44 +36,32 @@ const Sql = require('./datastores/sql.js');
 
 function getDatastoreClient(connection) {
     // handle test mode:
-    /**
      if (connection.mock) {
         return DatastoreMock;
     }
-    */
 
     const {dialect} = connection;
 
-    /**
-    if (dialect === 'elasticsearch') {
-        return Elasticsearch;
-    } else if (dialect === 's3') {
-        return S3;
-    } else if (dialect === 'apache drill') {
+    if (dialect === DIALECTS.APACHE_DRILL) {
         return ApacheDrill;
-    } else if (dialect === 'apache spark') {
-        return ApacheLivy;
-    } else if (dialect === 'apache impala') {
+    } else if (dialect === DIALECTS.APACHE_IMPALA) {
         return ApacheImpala;
-    } else if (dialect === 'csv') {
-        return CSV;
-    } else if (dialect === 'ibm db2') {
-        return IbmDb2;
-    } else if (dialect === 'data.world') {
-        return DataWorld;
-    } else if (dialect === 'athena') {
-        return Athena;
-    } else if (dialect === 'oracle') {
-        return Oracle;
-    } else if (dialect === 'bigquery') {
+    } else if (dialect === DIALECTS.APACHE_SPARK) {
+        return ApacheLivy;
+    } else if (dialect === DIALECTS.BIGQUERY) {
         return BigQuery;
-    }
-    return Sql;*/
-
-    if (dialect === DIALECTS.CSV) {
+    } else if (dialect === DIALECTS.CSV) {
         return CSV;
     } else if (dialect === DIALECTS.ELASTICSEARCH) {
         return Elasticsearch;
+    } else if (dialect === DIALECTS.DATA_WORLD) {
+        return DataWorld;
+    } else if (dialect === DIALECTS.IBM_DB2) {
+        return IbmDb2;
+    } else if (dialect === DIALECTS.ORACLE) {
+        return Oracle;
+    } else if (dialect === DIALECTS.S3) {
+        return S3;
     }
 
     return Sql;
