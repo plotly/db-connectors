@@ -1,5 +1,5 @@
 {
-  "name": "falcon-sql-client",
+  "name": "db-connectors",
   "version": "0.0.1",
   "description": "Free, open-source DB connection",
   "main": "./src/index.js",
@@ -38,7 +38,7 @@
     "persistent",
     "connector"
   ],
-  "homepage": "https://github.com/plotly/falcon-sql-client",
+  "homepage": "https://github.com/plotly/db-connectors",
   "optionalDependencies": {
     "fsevents": "*"
   },
