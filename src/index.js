@@ -8,6 +8,7 @@ const ApacheLivy = require('./datastores/livy');
 const BigQuery = require('./datastores/bigquery');
 const CSV = require('./datastores/csv');
 const DataWorld = require('./datastores/dataworld');
+const DatastoreMock = require('./datastores/datastoremock');
 const Elasticsearch = require('./datastores/elasticsearch');
 const IbmDb2 = require('./datastores/ibmdb2');
 const Oracle = require('./datastores/oracle.js');
