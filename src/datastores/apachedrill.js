@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const S3 = require('./S3.js');
+const S3 = require('./s3.js');
 
 
 function connect(connection) {
