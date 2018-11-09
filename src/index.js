@@ -13,7 +13,7 @@ const Elasticsearch = require('./datastores/elasticsearch');
 const IbmDb2 = require('./datastores/ibmdb2');
 const Oracle = require('./datastores/oracle.js');
 const Sql = require('./datastores/sql.js');
-const S3 = require('./datastores/S3');
+const S3 = require('./datastores/s3');
 
 
 /*
