@@ -1,8 +1,7 @@
 const {assert} = require('chai');
 
 const {apacheImpalaConnection } = require('./utils.js');
-const {
-    query, connect, tables
+const { connect, tables
 } = require('../src/index');
 
 // Suppressing ESLint cause Mocha ensures `this` is bound in test functions
