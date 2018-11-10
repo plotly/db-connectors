@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Security
 
+## [0.0.4] - 2018-11-10
+
+### Added
+
+* Added Livy and Oracle Unit tests.  Turned off tests for impala
+
 ## [0.0.3] - 2018-11-09
 
 ### Added
