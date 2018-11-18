@@ -4,7 +4,7 @@ const {DIALECTS} = require('../src/common/constants.js');
 
 const {
     query, connect, tables
-} = require('../src/index.js');
+} = require('../src/datastores/index.js');
 
 const connection = {
     dialect: DIALECTS.IBM_DB2,

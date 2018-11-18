@@ -1,20 +1,19 @@
 
 
-const {DIALECTS} = require('./common/constants');
+const {DIALECTS} = require('../common/constants');
 
-const ApacheDrill = require('./datastores/apachedrill');
-const ApacheImpala = require('./datastores/impala');
-const ApacheLivy = require('./datastores/livy');
-const BigQuery = require('./datastores/bigquery');
-const CSV = require('./datastores/csv');
-const DataWorld = require('./datastores/dataworld');
-const DatastoreMock = require('./datastores/datastoremock');
-const Elasticsearch = require('./datastores/elasticsearch');
-const IbmDb2 = require('./datastores/ibmdb2');
-const Oracle = require('./datastores/oracle.js');
-const Sql = require('./datastores/sql.js');
-const S3 = require('./datastores/s3');
-const Datastores = require('./datastores/index');
+const ApacheDrill = require('./apachedrill');
+const ApacheImpala = require('./impala');
+const ApacheLivy = require('./livy');
+const BigQuery = require('./bigquery');
+const CSV = require('./csv');
+const DataWorld = require('./dataworld');
+const DatastoreMock = require('./datastoremock');
+const Elasticsearch = require('./elasticsearch');
+const IbmDb2 = require('./ibmdb2');
+const Oracle = require('./oracle.js');
+const Sql = require('./sql.js');
+const S3 = require('./s3');
 
 
 /*

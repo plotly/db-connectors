@@ -4,7 +4,7 @@ const {DIALECTS} = require('../src/common/constants.js');
 
 const {
     query, connect, tables
-} = require('../src/index.js');
+} = require('../src/datastores/index.js');
 
 const {disconnect} = require('../src/datastores/livy.js');
 

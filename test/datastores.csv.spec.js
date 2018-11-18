@@ -8,7 +8,7 @@ const {
     schemas,
     tables,
     disconnect
-}  = require('../src/index');
+}  = require('../src/datastores/index');
 
 const {
     getAvailableSize,
