@@ -1,6 +1,6 @@
 {
   "name": "db-connectors",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Free, open-source DB connection",
   "main": "./src/index.js",
   "scripts": {
