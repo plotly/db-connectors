@@ -12,7 +12,7 @@ const {
 
 const {
     query, connect, elasticsearchMappings
-} = require('../src/index');
+} = require('../src/datastores/index');
 
 describe('Elasticsearch v5:', function () {
     let url;
