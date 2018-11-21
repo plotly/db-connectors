@@ -21,7 +21,7 @@
   },
   "author": {
     "name": "Plotly",
-    "email": "chris@plot.ly"
+    "email": "shannonlal@hotmail.com"
   },
   "license": "MIT",
   "bugs": {
@@ -53,6 +53,7 @@
     "alasql": "^0.4.11",
     "aws-sdk": "^2.156.0",
     "csv-parse": "^2.5.0",
+    "express": "^4.16.4",
     "fs": "0.0.1-security",
     "ibm_db": "^2.3.0",
     "moment": "^2.22.2",
