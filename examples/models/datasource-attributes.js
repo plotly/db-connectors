@@ -6,13 +6,13 @@ module.exports = (sequelize, type) => {
           autoIncrement: true
         },
         datasource_id:{
+            type: type.INTEGER,
             allowNull: false,
             references: {
               model: 'datasources',
               key: 'id'
             }
-        },
-        attributes: DataTypes.JSONB,
+        }
     },{
         tableName: 'datasources_attributes',
         createdAt: 'created_at',

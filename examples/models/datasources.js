@@ -7,7 +7,14 @@ module.exports = (sequelize, type) => {
         },
         name: type.STRING,
         icon: type.STRING
-    },{
+    },
+    {
+        indexes: [
+            {
+                unique: true,
+                fields: ['name']
+            }
+        ],
         tableName: 'datasources',
         createdAt: 'created_at',
         updatedAt: 'updated_at'
