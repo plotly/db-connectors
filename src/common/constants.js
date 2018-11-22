@@ -20,37 +20,35 @@ const DIALECTS = {
 
 const SQL_ATTRIBUTES_SCHEMA = {
     type: 'object',
-
-    properties:{
-        username:{
-            type:'string',
+    properties: {
+        username: {
+            type: 'string',
             label: 'Username',
             errorMessage: 'Username is required'
         },
-        password:{
-            type:'string',
+        password: {
+            type: 'string',
             label: 'Username',
             errorMessage: 'Password is required'
         },
-        host:{
-            type:'string',
+        host: {
+            type: 'string',
             label: 'Host',
             errorMessage: 'Host is required'
         },
-        port:{
-            type:'number',
+        port: {
+            type: 'number',
             label: 'Port',
             errorMessage: 'Port is required',
             description: 'Server port number (e.g. 3306)'
         },
-        database:{
-            type:'string',
+        database: {
+            type: 'string',
             label: 'Database',
             errorMessage: 'Database is required'
         }
     },
-    required:['username','password','host','port','database']
-    
+    required: ['username', 'password', 'host', 'port', 'database']
 };
 
 module.exports = {
