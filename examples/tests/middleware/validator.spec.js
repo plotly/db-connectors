@@ -6,8 +6,7 @@ const expect = chai.expect;
 
 describe('Validator Request  ', () => {
     const errorRes = {
-        status: (httpStatus)=>{
-            console.log( 'Checking status', httpStatus);
+        status: (httpStatus) => {
             expect(httpStatus).to.equal(400);
             return {
                 send: (errorMsg) => {
@@ -16,9 +15,12 @@ describe('Validator Request  ', () => {
             };
         }
     };
+
     it('it should verify that validate request exists', async (done) => {
         try {
+            /* eslint-disable */
             expect(validateRequest).to.exist;
+            /* eslint-enable */
             done();
         } catch (err) {
             done(err);
@@ -29,11 +31,11 @@ describe('Validator Request  ', () => {
         try {
             let req;
 
-            try{
+            try {
                 validateRequest(req, errorRes);
                 done('Should have failed validation');
-            }catch(err){
-                expect(err).to.equal(`Invalid request.  Missing Connection or Dialect attribute`);
+            } catch (err) {
+                expect(err).to.equal('Invalid request.  Missing Connection or Dialect attribute');
                 done();
             }
         } catch (err) {
@@ -43,15 +45,15 @@ describe('Validator Request  ', () => {
 
     it('it should fail to validate req because missing dialect', async (done) => {
         try {
-            let req = {
-                connection:{}
+            const req = {
+                connection: {}
             };
 
-            try{
+            try {
                 validateRequest(req, errorRes);
                 done('Should have failed validation');
-            }catch(err){
-                expect(err).to.equal(`Invalid request.  Missing Connection or Dialect attribute`);
+            } catch (err) {
+                expect(err).to.equal('Invalid request.  Missing Connection or Dialect attribute');
                 done();
             }
         } catch (err) {
@@ -61,18 +63,47 @@ describe('Validator Request  ', () => {
 
     it('it should fail to validate req because not supported dialect', async (done) => {
         try {
-            let req = {
-                connection:{
-                    dialect : 'bad_dialect'
+            const req = {
+                connection: {
+                    dialect: 'bad_dialect'
                 }
             };
 
-            try{
+            try {
                 validateRequest(req, errorRes);
-                done('Should have failed validation');
-            }catch(err){
-                expect(err).to.equal(`Invalid request.  Dialect not support bad_dialect`);
+            } catch (err) {
+                expect(err).to.equal('Invalid request.  Dialect not support bad_dialect');
                 done();
+            }
+        } catch (err) {
+            done(err);
+        }
+    });
+
+    it('it should validate valid mysql connection', async (done) => {
+        try {
+            const req = {
+                connection: {
+                    dialect: DIALECTS.MYSQL,
+                    attributes: {
+                        username: 'root',
+                        password: '12345',
+                        host: '127.0.0.1',
+                        port: 5432,
+                        database: 'plotly.db'
+                    }
+                }
+            };
+
+            const res = {};
+            const next = function() {
+                done();
+            };
+
+            try {
+                validateRequest(req, res, next);
+            } catch (err) {
+                done(err);
             }
         } catch (err) {
             done(err);

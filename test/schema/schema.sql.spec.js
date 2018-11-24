@@ -27,7 +27,7 @@ describe('SQL Schema:', function () {
             host: '127.0.0.1',
             port: 5432,
             database:'plotly.db'
-        }
+        };
         let rst;
         try{
             rst = v.validate( sqlConnection, SCHEMAS.SQL_ATTRIBUTES_SCHEMA);
@@ -43,7 +43,7 @@ describe('SQL Schema:', function () {
             host: '127.0.0.1',
             port: 5432,
             database:'plotly.db'
-        }
+        };
         let rst;
         try{
             rst = v.validate( sqlConnection, SCHEMAS.SQL_ATTRIBUTES_SCHEMA);

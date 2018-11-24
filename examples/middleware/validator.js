@@ -24,6 +24,7 @@ const validateRequest = function (req,res,next){
                 schema = SCHEMAS.SQL_ATTRIBUTES_SCHEMA
                 break;
         }
+
         if( schema ){
             const validationResult = v.validate( req.connection.attributes, schema);
             if( validationResult.errors.length > 0){
