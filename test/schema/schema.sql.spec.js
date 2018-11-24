@@ -1,5 +1,5 @@
 // do not use import, otherwise other test units won't be able to reactivate nock
-const {assert} = require('chai');
+const {assert,expect} = require('chai');
 const {SQL_ATTRIBUTES_SCHEMA} = require('../../src/common/constants');
 const Validator = require('jsonschema').Validator;
 let v;
@@ -31,12 +31,8 @@ describe('SQL Schema:', function () {
         let rst;
         try{
             rst = v.validate( sqlConnection, SQL_ATTRIBUTES_SCHEMA);
-            assert(rst.valid);
-            console.log( 'r', rst.valid);
-            //assert.fail(0,1,'Should failed schema validation');
+            expect(rst.errors[0].message).to.equal('requires property "username"');
         }catch(err){
-            console.log( 'Error ocurrect', rst);
-            //Expect logic
             assert.isOk(!rst.valid, 'Test Passed failed validation');
         }
     });
@@ -51,12 +47,42 @@ describe('SQL Schema:', function () {
         let rst;
         try{
             rst = v.validate( sqlConnection, SQL_ATTRIBUTES_SCHEMA);
-            //console.log('rst', rst);
-            assert.fail(0,1,'Should failed schema validation');
+            expect(rst.errors[0].message).to.equal('requires property "password"');
             
         }catch(err){
-            //console.log('err', err);
             assert.isOk(!rst.valid, 'Test Passed failed validation');
+        }
+    });
+
+    it('should fail validation because missing host', function() {
+        const sqlConnection = {
+            username: 'root',
+            password: '12345',
+            port: 5432,
+            database:'plotly.db'
+        }
+        let rst;
+        try{
+            rst = v.validate( sqlConnection, SQL_ATTRIBUTES_SCHEMA);
+            expect(rst.errors[0].message).to.equal('requires property "host"');
+        }catch(err){
+            assert.isOk(rst.valid, 'Test Passed failed validation');
+        }
+    });
+
+    it('should fail validation because missing database', function() {
+        const sqlConnection = {
+            username: 'root',
+            password: '12345',
+            port: 5432,
+            database:'plotly.db'
+        }
+        let rst;
+        try{
+            rst = v.validate( sqlConnection, SQL_ATTRIBUTES_SCHEMA);
+            expect(rst.errors[0].message).to.equal('requires property "host"');
+        }catch(err){
+            assert.isOk(rst.valid, 'Test Passed failed validation');
         }
     });
 });
