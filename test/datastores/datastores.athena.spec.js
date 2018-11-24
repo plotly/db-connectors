@@ -4,7 +4,7 @@ const nock = require('nock');
 const {assert} = require('chai');
 const uuid = require('uuid');
 
-const {connect, schemas, query, tables} = require('../src/datastores/athena');
+const {connect, schemas, query, tables} = require('../../src/datastores/athena');
 
 describe('Athena:', function () {
     const URL = 'https://athena.us-east-1.amazonaws.com:443';

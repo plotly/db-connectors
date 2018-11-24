@@ -8,12 +8,12 @@ const {
     schemas,
     tables,
     disconnect
-}  = require('../src/datastores/index');
+}  = require('../../src/datastores/index');
 
 const {
     getAvailableSize,
     setStorageSize
-} = require('../src/datastores/csv.js');
+} = require('../../src/datastores/csv.js');
 
 const csvFile = [
     'col1,col 2,"col 3",col 4',

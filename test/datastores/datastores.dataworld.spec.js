@@ -9,7 +9,7 @@ const {
     dataWorldQueryResponse,
     dataWorldColumnsResponse
 } = require('./utils.js');
-const {connect, tables, query, schemas} = require('../src/datastores/dataworld');
+const {connect, tables, query, schemas} = require('../../src/datastores/dataworld');
 
 describe('Data World:', function () {
     before(function() {

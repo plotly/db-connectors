@@ -1,12 +1,12 @@
 const {assert} = require('chai');
 
-const {DIALECTS} = require('../src/common/constants.js');
+const {DIALECTS} = require('../../src/common/constants.js');
 
 const {
     query, connect, tables
-} = require('../src/datastores/index.js');
+} = require('../../src/datastores/index.js');
 
-const {disconnect} = require('../src/datastores/livy.js');
+const {disconnect} = require('../../src/datastores/livy.js');
 
 const connection = {
     dialect: DIALECTS.APACHE_SPARK,

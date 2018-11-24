@@ -1,4 +1,4 @@
-const {parseCSV} = require('../src/common/parse.js');
+const {parseCSV} = require('../../src/common/parse.js');
 const {assert} = require('chai');
 
 const TEST_CASES = [

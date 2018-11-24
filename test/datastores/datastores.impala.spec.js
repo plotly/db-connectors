@@ -2,7 +2,7 @@ const {assert} = require('chai');
 
 const {apacheImpalaConnection } = require('./utils.js');
 const { connect, tables
-} = require('../src/datastores/index');
+} = require('../../src/datastores/index');
 
 // Suppressing ESLint cause Mocha ensures `this` is bound in test functions
 /* eslint-disable no-invalid-this */
