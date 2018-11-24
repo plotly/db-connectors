@@ -17,25 +17,40 @@ const v = new Validator();
  */
 const validateRequest = function (req,res,next){
 
-    if( req && req.connection && req.connection.dialect ){
+    if( req.url !== '/connect'){
+        next();
+    }else if( req.url === '/connect' && req.body.connection && req.body.connection.dialect ){
         let schema;
-        switch( req.connection.dialect ){
+        switch( req.body.connection.dialect ){
             case DIALECTS.MYSQL:
                 schema = SCHEMAS.SQL_ATTRIBUTES_SCHEMA
                 break;
             case DIALECTS.MSSQL:
                 schema = SCHEMAS.SQL_ATTRIBUTES_SCHEMA
                 break;
+            case DIALECTS.MARIADB:
+                schema = SCHEMAS.SQL_ATTRIBUTES_SCHEMA
+                break;
+            case DIALECTS.IBM_DB2:
+                schema = SCHEMAS.SQL_ATTRIBUTES_SCHEMA
+                break;
+            case DIALECTS.POSTGRES:
+                schema = SCHEMAS.SQL_ATTRIBUTES_SCHEMA
+                break;
+            case DIALECTS.REDSHIFT:
+                schema = SCHEMAS.SQL_ATTRIBUTES_SCHEMA
+                break;
+
         }
 
         if( schema ){
-            const validationResult = v.validate( req.connection.attributes, schema);
+            const validationResult = v.validate( req.body.connection.attributes, schema);
             if( validationResult.errors.length > 0){
                 return res.status(BAD_REQUEST).send(validationResult.errors[0].message);
             }
             next();
         }else{
-            const msg = `Invalid request.  Dialect not support ${req.connection.dialect}`;
+            const msg = `Invalid request.  Dialect not support ${req.body.connection.dialect}`;
             logger.error(msg);
             return res.status(BAD_REQUEST).send(msg);
         }

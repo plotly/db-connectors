@@ -7,6 +7,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const connectionController = require('./controllers/connection');
+const {validateRequest} = require('./middleware/validator');
 require('./common/db');
 const orm = require('./common/orm');
 
@@ -16,6 +17,8 @@ app.use(bodyParser.json({ limit: '5mb' })); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
     extended: true
 }));
+
+app.use( validateRequest );
 
 //app.use(express.static(__dirname + '/public'))
 
