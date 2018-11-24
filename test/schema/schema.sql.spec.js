@@ -1,6 +1,6 @@
 // do not use import, otherwise other test units won't be able to reactivate nock
 const {assert,expect} = require('chai');
-const {SQL_ATTRIBUTES_SCHEMA} = require('../../src/common/constants');
+const {SCHEMAS} = require('../../src/common/constants');
 const Validator = require('jsonschema').Validator;
 let v;
 
@@ -17,7 +17,7 @@ describe('SQL Schema:', function () {
             port: 5432,
             database:'plotly.db'
         }
-        let rst = v.validate( sqlConnection, SQL_ATTRIBUTES_SCHEMA);
+        let rst = v.validate( sqlConnection, SCHEMAS.SQL_ATTRIBUTES_SCHEMA);
         assert(rst.valid);
     });
 
@@ -30,7 +30,7 @@ describe('SQL Schema:', function () {
         }
         let rst;
         try{
-            rst = v.validate( sqlConnection, SQL_ATTRIBUTES_SCHEMA);
+            rst = v.validate( sqlConnection, SCHEMAS.SQL_ATTRIBUTES_SCHEMA);
             expect(rst.errors[0].message).to.equal('requires property "username"');
         }catch(err){
             assert.isOk(!rst.valid, 'Test Passed failed validation');
@@ -46,7 +46,7 @@ describe('SQL Schema:', function () {
         }
         let rst;
         try{
-            rst = v.validate( sqlConnection, SQL_ATTRIBUTES_SCHEMA);
+            rst = v.validate( sqlConnection, SCHEMAS.SQL_ATTRIBUTES_SCHEMA);
             expect(rst.errors[0].message).to.equal('requires property "password"');
             
         }catch(err){
@@ -63,7 +63,7 @@ describe('SQL Schema:', function () {
         }
         let rst;
         try{
-            rst = v.validate( sqlConnection, SQL_ATTRIBUTES_SCHEMA);
+            rst = v.validate( sqlConnection, SCHEMAS.SQL_ATTRIBUTES_SCHEMA);
             expect(rst.errors[0].message).to.equal('requires property "host"');
         }catch(err){
             assert.isOk(rst.valid, 'Test Passed failed validation');
@@ -79,7 +79,7 @@ describe('SQL Schema:', function () {
         }
         let rst;
         try{
-            rst = v.validate( sqlConnection, SQL_ATTRIBUTES_SCHEMA);
+            rst = v.validate( sqlConnection, SCHEMAS.SQL_ATTRIBUTES_SCHEMA);
             expect(rst.errors[0].message).to.equal('requires property "host"');
         }catch(err){
             assert.isOk(rst.valid, 'Test Passed failed validation');

@@ -51,7 +51,11 @@ const SQL_ATTRIBUTES_SCHEMA = {
     required: ['username', 'password', 'host', 'port', 'database']
 };
 
+const SCHEMAS = {
+    SQL_ATTRIBUTES_SCHEMA
+}
+
 module.exports = {
     DIALECTS,
-    SQL_ATTRIBUTES_SCHEMA
+    SCHEMAS
 };

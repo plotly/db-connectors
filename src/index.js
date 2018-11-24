@@ -1,3 +1,4 @@
+const 
 const ApacheDrill = require('./datastores/apachedrill');
 const ApacheImpala = require('./datastores/impala');
 const ApacheLivy = require('./datastores/livy');
@@ -15,6 +16,8 @@ const Datastores = require('./datastores/index');
 
 module.exports = {
     Datastores,
+    DIALECTS,
+
     ApacheDrill,
     ApacheImpala,
     ApacheLivy,
