@@ -7,7 +7,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const connectionController = require('./controllers/connection');
-const {validateRequest} = require('./middleware/validator');
+const {validateRequest, loggerMiddleware} = require('./middleware');
+console.log( 'validate', validateRequest);
 require('./common/db');
 const orm = require('./common/orm');
 
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
     extended: true
 }));
 
+app.use( loggerMiddleware );
 app.use( validateRequest );
 
 //app.use(express.static(__dirname + '/public'))

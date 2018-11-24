@@ -53,7 +53,7 @@ const SQL_ATTRIBUTES_SCHEMA = {
 
 const SCHEMAS = {
     SQL_ATTRIBUTES_SCHEMA
-}
+};
 
 module.exports = {
     DIALECTS,

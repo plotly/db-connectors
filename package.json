@@ -4,7 +4,7 @@
   "description": "Free, open-source DB connection",
   "main": "./src/index.js",
   "scripts": {
-    "lint": "eslint src test *.js --ext .js",
+    "lint": "eslint src *.js --ext .js",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 --exit test/**/*.js",
     "test-unit-athena": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores/datastores.athena.spec.js",
     "test-unit-csv": "NODE_ENV=test ./node_modules/.bin/mocha --full-trace --timeout 90000 test/datastores/datastores.csv.spec.js",

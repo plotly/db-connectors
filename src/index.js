@@ -1,4 +1,4 @@
-const {DIALECTS,SCHEMAS} = require('./common/constants');
+const {DIALECTS, SCHEMAS} = require('./common/constants');
 const ApacheDrill = require('./datastores/apachedrill');
 const ApacheImpala = require('./datastores/impala');
 const ApacheLivy = require('./datastores/livy');
