@@ -109,4 +109,35 @@ describe('Validator Request  ', () => {
             done(err);
         }
     });
+    
+
+    it('it should validate valid mssql connection', async (done) => {
+        try {
+            const req = {
+                connection: {
+                    dialect: DIALECTS.MSSQL,
+                    attributes: {
+                        username: 'root',
+                        password: '12345',
+                        host: '127.0.0.1',
+                        port: 5432,
+                        database: 'plotly.db'
+                    }
+                }
+            };
+
+            const res = {};
+            const next = function() {
+                done();
+            };
+
+            try {
+                validateRequest(req, res, next);
+            } catch (err) {
+                done(err);
+            }
+        } catch (err) {
+            done(err);
+        }
+    });
 });

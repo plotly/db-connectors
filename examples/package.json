@@ -8,7 +8,7 @@
     "lint-watch": "./node_modules/.bin/esw -w -c .eslintrc.json --watch ./common/**/*.js ./controllers/**/*.js ./tests/**/*.js",
     "startServer": "node app.js",
     "test": "NODE_ENV=test node node_modules/.bin/mocha tests/*/**.js",
-    "test-watch": "NODE_ENV=test node node_modules/.bin/mocha --watch tests/*/**.js"
+    "test-watch": "NODE_ENV=test node node_modules/.bin/mocha  tests/*/**.js --watch"
   },
   "repository": {
     "type": "git",

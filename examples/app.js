@@ -22,4 +22,13 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
 connectionController(app);
 
 logger.info(`DB-Connector Server start on ${SERVER_PORT}`);
-module.exports = app.listen( SERVER_PORT);
+
+/**
+ * https://blog.campvanilla.com/jest-expressjs-and-the-eaddrinuse-error-bac39356c33a
+ * Support for super test 
+ */
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(port);
+}
+
+module.exports = app;

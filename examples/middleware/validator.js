@@ -23,6 +23,9 @@ const validateRequest = function (req,res,next){
             case DIALECTS.MYSQL:
                 schema = SCHEMAS.SQL_ATTRIBUTES_SCHEMA
                 break;
+            case DIALECTS.MSSQL:
+                schema = SCHEMAS.SQL_ATTRIBUTES_SCHEMA
+                break;
         }
 
         if( schema ){
