@@ -1,4 +1,4 @@
-const {SCHEMAS,DIALECTS} = require('../../src/index');
+const {SCHEMAS,DIALECTS} = require('../../../src/index');
 const logger = require('winston');
 const BAD_REQUEST = 400;
 const Validator = require('jsonschema').Validator;

@@ -1,7 +1,7 @@
 // Require the dev-dependencies
 const chai = require('chai');
 const {validateRequest} = require('../../middleware/validator');
-const {DIALECTS} = require('../../../src');
+const {DIALECTS} = require('../../../../src');
 const expect = chai.expect;
 
 describe('Validator Request  ', () => {
