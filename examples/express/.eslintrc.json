@@ -13,6 +13,7 @@
     "rules":{
         "semi":"error",
         "no-alert":"error",
+        "no-console":"error",
         "no-dupe-args":"error",
         "no-dupe-keys":"error",
         "no-duplicate-case":"error",

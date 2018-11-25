@@ -4,8 +4,8 @@
   "description": "Free, open-source DB connection",
   "main": "./src/index.js",
   "scripts": {
-    "lint": "eslint -c .eslintrc.json ./common/**/*.js ./controllers/**/*.js ./tests/**/*.js",
-    "lint-watch": "./node_modules/.bin/esw -w -c .eslintrc.json --watch ./common/**/*.js ./controllers/**/*.js ./tests/**/*.js",
+    "lint": "eslint -c .eslintrc.json ./**/*.js",
+    "lint-watch": "./node_modules/.bin/esw -w -c .eslintrc.json --watch ./**/*.js",
     "startServer": "node app.js",
     "test": "NODE_ENV=test node node_modules/.bin/mocha tests/*/**.js",
     "test-watch": "NODE_ENV=test node node_modules/.bin/mocha  tests/*/**.js --watch"

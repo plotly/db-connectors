@@ -7,10 +7,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const connectionController = require('./controllers/connection');
-console.log( 'connect', connectionController);
 const {validateRequest, loggerMiddleware} = require('./middleware');
 require('./common/db');
 const orm = require('./common/orm');
+
+console.log( 'Test');
 
 logger.info('Start of DB-Connector Server');
 
@@ -33,7 +34,7 @@ logger.info(`DB-Connector Server start on ${SERVER_PORT}`);
  * Support for super test 
  */
 if (process.env.NODE_ENV !== 'test') {
-    app.listen(port);
+    app.listen(SERVER_PORT);
 }
 
 module.exports = app;

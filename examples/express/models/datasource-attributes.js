@@ -5,7 +5,7 @@ module.exports = (sequelize, type) => {
           primaryKey: true,
           autoIncrement: true
         },
-        datasource_id:{
+        datasource_id: {
             type: type.INTEGER,
             allowNull: false,
             references: {
@@ -13,10 +13,10 @@ module.exports = (sequelize, type) => {
               key: 'id'
             }
         }
-    },{
+    },
+    {
         tableName: 'datasources_attributes',
         createdAt: 'created_at',
         updatedAt: 'updated_at'
-    }
-    )
-}
+    });
+};
