@@ -7,8 +7,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const connectionController = require('./controllers/connection');
+console.log( 'connect', connectionController);
 const {validateRequest, loggerMiddleware} = require('./middleware');
-console.log( 'validate', validateRequest);
 require('./common/db');
 const orm = require('./common/orm');
 

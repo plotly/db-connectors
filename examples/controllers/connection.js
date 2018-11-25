@@ -1,27 +1,25 @@
 
-const HTTP_OK = 200;
-// BAD_REQUEST = 400, UNEXPECTED_ERROR=500;
-const logger = require('winston');
-// const {Datastores} = require('../../src/index');
+const HTTP_OK = 200, BAD_REQUEST = 400;
+// UNEXPECTED_ERROR=500;
+const {Datastores} = require('../../src/index');
 
 const connectController = async(app) => {
 
-    app.post('/connect', function(req, res) {
-        const data = {
-            status: true
-        };
+    app.post('/connect', async (req, res) => {
+        try {
+            const rst = await Datastores.connect(req.body.connection);
+            res.header('Content-Type', 'application/json');
+            res.status(HTTP_OK).send(rst);
+        } catch (err) {
+            return res.status(BAD_REQUEST).send(err);
+        }
 
-        logger.info(req.method, ' ', req.url, 'Response Sent');
-        res.header('Content-Type', 'application/json');
-        res.status(HTTP_OK).send(data);
     });
 
     app.post('/query', function(req, res) {
         const data = {
             status: true
         };
-
-        logger.info(req.method, ' ', req.url, 'Response Sent');
         res.header('Content-Type', 'application/json');
         res.status(HTTP_OK).send(data);
     });
@@ -31,7 +29,6 @@ const connectController = async(app) => {
             status: true
         };
 
-        logger.info(req.method, ' ', req.url, 'Response Sent');
         res.header('Content-Type', 'application/json');
         res.status(HTTP_OK).send(data);
     });
