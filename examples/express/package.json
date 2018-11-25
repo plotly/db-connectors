@@ -52,6 +52,7 @@
     "supertest": "^3.3.0"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "sequelize": "3.30.4",
     "winston": "^3.1.0"
   },

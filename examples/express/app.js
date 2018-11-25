@@ -6,15 +6,15 @@ const logger = require('winston');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require('cors');
 const connectionController = require('./controllers/connection');
 const {validateRequest, loggerMiddleware} = require('./middleware');
 require('./common/db');
 const orm = require('./common/orm');
 
-console.log( 'Test');
-
 logger.info('Start of DB-Connector Server');
 
+app.use(cors());
 app.use(bodyParser.json({ limit: '5mb' })); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
     extended: true
