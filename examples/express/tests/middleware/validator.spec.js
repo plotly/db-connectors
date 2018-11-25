@@ -78,13 +78,11 @@ describe('Validator Request  ', () => {
                 body: {
                     connection: {
                         dialect: DIALECTS.MYSQL,
-                        attributes: {
-                            username: 'root',
-                            password: '12345',
-                            host: '127.0.0.1',
-                            port: 5432,
-                            database: 'plotly.db'
-                        }
+                        username: 'root',
+                        password: '12345',
+                        host: '127.0.0.1',
+                        port: 5432,
+                        database: 'plotly.db'
                     }
                 }
 
@@ -112,13 +110,11 @@ describe('Validator Request  ', () => {
                 body: {
                     connection: {
                         dialect: DIALECTS.MSSQL,
-                        attributes: {
-                            username: 'root',
-                            password: '12345',
-                            host: '127.0.0.1',
-                            port: 5432,
-                            database: 'plotly.db'
-                        }
+                        username: 'root',
+                        password: '12345',
+                        host: '127.0.0.1',
+                        port: 5432,
+                        database: 'plotly.db'
                     }
                 }
 
@@ -146,13 +142,11 @@ describe('Validator Request  ', () => {
                 body: {
                     connection: {
                         dialect: DIALECTS.MARIADB,
-                        attributes: {
-                            username: 'root',
-                            password: '12345',
-                            host: '127.0.0.1',
-                            port: 5432,
-                            database: 'plotly.db'
-                        }
+                        username: 'root',
+                        password: '12345',
+                        host: '127.0.0.1',
+                        port: 5432,
+                        database: 'plotly.db'
                     }
                 }
             };
@@ -179,13 +173,11 @@ describe('Validator Request  ', () => {
                 body: {
                     connection: {
                         dialect: DIALECTS.POSTGRES,
-                        attributes: {
-                            username: 'root',
-                            password: '12345',
-                            host: '127.0.0.1',
-                            port: 5432,
-                            database: 'plotly.db'
-                        }
+                        username: 'root',
+                        password: '12345',
+                        host: '127.0.0.1',
+                        port: 5432,
+                        database: 'plotly.db'
                     }
                 }
             };
@@ -212,13 +204,11 @@ describe('Validator Request  ', () => {
                 body: {
                     connection: {
                         dialect: DIALECTS.IBM_DB2,
-                        attributes: {
-                            username: 'root',
-                            password: '12345',
-                            host: '127.0.0.1',
-                            port: 5432,
-                            database: 'plotly.db'
-                        }
+                        username: 'root',
+                        password: '12345',
+                        host: '127.0.0.1',
+                        port: 5432,
+                        database: 'plotly.db'
                     }
                 }
             };
@@ -246,13 +236,11 @@ describe('Validator Request  ', () => {
                 body: {
                     connection: {
                         dialect: DIALECTS.REDSHIFT,
-                        attributes: {
-                            username: 'root',
-                            password: '12345',
-                            host: '127.0.0.1',
-                            port: 5432,
-                            database: 'plotly.db'
-                        }
+                        username: 'root',
+                        password: '12345',
+                        host: '127.0.0.1',
+                        port: 5432,
+                        database: 'plotly.db'
                     }
                 }
             };

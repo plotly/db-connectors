@@ -7,6 +7,7 @@
     "lint": "eslint -c .eslintrc.json ./**/*.js",
     "lint-watch": "./node_modules/.bin/esw -w -c .eslintrc.json --watch ./**/*.js",
     "startServer": "node app.js",
+    "startDevServer": "nodemon app.js",
     "test": "NODE_ENV=test node node_modules/.bin/mocha tests/*/**.js",
     "test-watch": "NODE_ENV=test node node_modules/.bin/mocha  tests/*/**.js --watch"
   },

@@ -15,7 +15,7 @@ const datastoresMock = {
             resolve(conn);
         });
     },
-    query: (conn) => {
+    query: (queryStatement, conn) => {
         return new Promise ((resolve) => {
             resolve(conn);
         });
@@ -31,18 +31,16 @@ const server = proxyrequire('../../app', {'./controllers/connection': connection
 const request = supertest(server);
 const {DIALECTS} = require('../../../../src');
 
-describe('/POST Connection ', () => {
+describe('Connection ', () => {
 
     const connectionData = {
         connection: {
             dialect: DIALECTS.MYSQL,
-            attributes: {
-                username: 'root',
-                password: '12345',
-                host: '127.0.0.1',
-                port: 5432,
-                database: 'plotly.db'
-            }
+            username: 'root',
+            password: '12345',
+            host: '127.0.0.1',
+            port: 5432,
+            database: 'plotly.db'
         }
     };
     it('it should successfully connect to a datasource', async (done) => {

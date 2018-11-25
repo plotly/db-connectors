@@ -47,7 +47,7 @@ const validateRequest = function (req, res, next) {
         }
 
         if (schema) {
-            const validationResult = v.validate(req.body.connection.attributes, schema);
+            const validationResult = v.validate(req.body.connection, schema);
             if (validationResult.errors.length > 0) {
                 return res.status(BAD_REQUEST).send(validationResult.errors[0].message);
             }

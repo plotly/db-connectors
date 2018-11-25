@@ -61,7 +61,6 @@ function createClient(connection) {
             }
         });
     }
-
     return new Sequelize(
         database, username, password, options
     );
