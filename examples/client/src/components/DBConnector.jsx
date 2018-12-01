@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
+import Error from './Error';
 
 class DBConnector extends React.Component {
    /**
@@ -28,7 +29,7 @@ class DBConnector extends React.Component {
                 />
             );
         }else{
-            return (<div><p>Error Initializing the selector</p></div>)
+            return (<Error message={'Unexpected Error creating db selector'}/>);
         }
     }
 }
