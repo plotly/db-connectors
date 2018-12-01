@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DBConnector from './DBConnector';
+import DBSelector from './DBSelector';
 import { shallow,mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -11,7 +11,7 @@ describe( 'DB Connector', ()=>{
     });
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<DBConnector />, div);
+        ReactDOM.render(<DBSelector />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
@@ -21,7 +21,7 @@ describe( 'DB Connector', ()=>{
         ];
         const connectorSelected = ()=>{};
 
-        const selector = mount(<DBConnector 
+        const selector = mount(<DBSelector 
             options={options} 
             connectorSelected={connectorSelected}/>);
         
@@ -33,7 +33,7 @@ describe( 'DB Connector', ()=>{
             { value: 'DB2', label: 'IBM DB2' }
         ];
 
-        const selector = mount(<DBConnector 
+        const selector = mount(<DBSelector 
             options={options} />);
 
         console.log( 'Output ', selector);
