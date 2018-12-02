@@ -30,7 +30,6 @@ describe( 'Error Component', ()=>{
 
     it('should render the error component without provided message', () => {
         const errorMsg = 'An error occured';
-        const connectorSelected = ()=>{};
 
         const error = mount(<Error />);
         

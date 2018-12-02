@@ -36,8 +36,6 @@ describe( 'DB Connector', ()=>{
         const selector = mount(<DBSelector 
             options={options} />);
 
-        console.log( 'Output ', selector);
-        
         expect(selector.find('p').length).toBe(1);
         expect(selector.text()).toBe('Unexpected Error creating db selector');
     });
