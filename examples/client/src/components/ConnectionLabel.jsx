@@ -6,7 +6,7 @@ import Error from './Error';
 
 
 const ConnectionLabel = ({label, type, description}) => {
-    if( !label && !type ){
+    if( !label || !type ){
         return (<Error message={'Unable to create the label missing properties'}/>);
     }else{
         let inputType;
@@ -38,4 +38,4 @@ ConnectionLabel.propTypes = {
         description: PropTypes.description
 };  
 
-export default ConnectionDialog;
+export default ConnectionLabel;
