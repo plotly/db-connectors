@@ -4,7 +4,7 @@ import ConnectionDialog from './ConnectionDialog';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-describe( 'Connection Dialog', ()=>{
+describe( 'Connection Label', ()=>{
 
     beforeAll(()=>{
         configure({ adapter: new Adapter() });
