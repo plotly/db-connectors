@@ -20,8 +20,6 @@ class ConnectionDialog extends React.Component {
     }  
 
     render() {
-        const { selectedOption } = this.state;
-
         if( this.props.dialect && this.props.connect && this.props.edit){
             return (
                 <Select
