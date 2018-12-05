@@ -64,8 +64,28 @@ const getDialects = function(){
     return _.keys( DIALECTS ).map( k =>{ return {label:k, value: DIALECTS[k] } });
 }
 
+/**
+ * Returns the schema based on the dialect
+ * @param {string} dialect 
+ */
+const getSchema = function(dialect){
+
+    //SQL only supported
+    return SQL_ATTRIBUTES_SCHEMA;
+}
+
+/**
+ * 
+ * @param {object} schemaProperties
+ */
+const getSchemaAttributes = function(schemaProperties){
+    return _.keys( schemaProperties ).map (k => schemaProperties[k]);
+}
+
 module.exports = {
     getDialects,
+    getSchemaAttributes,
+    getSchema,
     DIALECTS,
     SCHEMAS
 };

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 import Error from './Error';
 
-
-
 const ConnectionLabel = ({label, type, description}) => {
     if( !label || !type ){
         return (<Error message={'Unable to create the label missing properties'}/>);
@@ -35,7 +33,7 @@ const ConnectionLabel = ({label, type, description}) => {
 ConnectionLabel.propTypes = {
         label: PropTypes.string.isRequired,
         type: PropTypes.string.isRequired,
-        description: PropTypes.description
+        description: PropTypes.string.description
 };  
 
 export default ConnectionLabel;

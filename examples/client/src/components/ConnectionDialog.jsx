@@ -1,37 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Select from 'react-select';
 import Error from './Error';
+import ConnectionLabel from './ConnectionLabel';
+import {getSchemaAttributes, getSchema} from '../common/constants';
 
+/**
+ * The following function will retrieve the connection attributes
+ * by the string
+ * @param {string} dialect 
+ */
+const getConnectionAttributes = (dialect) =>{
+    const schema = getSchema(dialect);
+    return getSchemaAttributes(schema);
 
+};
 
-class ConnectionDialog extends React.Component {
-   /**
-     * DB Component props
-     * @type     {object}          props
-     * @property {string}          props.dialect - Dialect for the database
-     * @property {func}            props.connect - A function to connect to the specified db
-     * @property {func}            props.edit - A function to edit the conection
-     */
-    static propTypes = {
-        dialect: PropTypes.string,
-        connect: PropTypes.func,
-        edit: PropTypes.func
-    }  
+const ConnectionDialog = ({dialect}) => {
 
-    render() {
-        if( this.props.dialect && this.props.connect && this.props.edit){
-            return (
-                <Select
-                    value={selectedOption}
-                    onChange={this.props.connectorSelected}
-                    options={this.props.options}
-                />
-            );
-        }else{
-            return (<Error message={'Unexpected Error creating db selector'}/>);
-        }
+    const attributes = getConnectionAttributes(dialect);
+    if( !dialect || !attributes ){
+        return (<Error message={'Unable to create the label missing properties'}/>);
+    }else{
+        return (
+            <div>
+                {
+                    attributes.map( attr => {
+                        return (<ConnectionLabel {...attr} />)
+                    } )
+                }
+            </div>
+        );
     }
+
 }
+
+/**
+ * DB Component props
+ * @type     {object}          props
+ * @property {string}          props.dialect - The Connection Attributes
+ */
+ConnectionDialog.propTypes = {
+    dialect: PropTypes.string.isRequired
+};  
+
 
 export default ConnectionDialog;
