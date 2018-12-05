@@ -11,11 +11,11 @@ import {getSchemaAttributes, getSchema} from '../common/constants';
  */
 const getConnectionAttributes = (dialect) =>{
     const schema = getSchema(dialect);
-    return getSchemaAttributes(schema);
+    return getSchemaAttributes(schema.properties);
 
 };
 
-const ConnectionDialog = ({dialect}) => {
+const ConnectionDialog = ({dialect,query}) => {
 
     const attributes = getConnectionAttributes(dialect);
     if( !dialect || !attributes ){
@@ -24,10 +24,11 @@ const ConnectionDialog = ({dialect}) => {
         return (
             <div>
                 {
-                    attributes.map( attr => {
-                        return (<ConnectionLabel {...attr} />)
+                    attributes.map( (attr,index) => {
+                        return (<ConnectionLabel key={index} {...attr} />)
                     } )
                 }
+                <button type="submit" onClick={query}>Query</button>
             </div>
         );
     }
@@ -38,9 +39,11 @@ const ConnectionDialog = ({dialect}) => {
  * DB Component props
  * @type     {object}          props
  * @property {string}          props.dialect - The Connection Attributes
+ * @property {func}            props.query - The Query Function
  */
 ConnectionDialog.propTypes = {
-    dialect: PropTypes.string.isRequired
+    dialect: PropTypes.string.isRequired,
+    query: PropTypes.func.isRequired
 };  
 
 

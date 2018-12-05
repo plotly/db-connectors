@@ -29,7 +29,7 @@ const SQL_ATTRIBUTES_SCHEMA = {
         },
         password: {
             type: 'string',
-            label: 'Username',
+            label: 'Password',
             errorMessage: 'Password is required'
         },
         host: {

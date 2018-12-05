@@ -18,14 +18,19 @@ class App extends Component {
   }
 
   connectorSelected( dialect ){
-    console.log( 'Dialect Selected', dialect.value);
     this.setState({dialect:dialect.value});
   }
+
+  query(cols, rows){
+    console.log( `Query the data`);
+    this.setState({columns:cols, rows:rows});
+  }
+
   render() {
     return (
       <div className="App">
         <DBSelector  options={getDialects()} connectorSelected={this.connectorSelected.bind(this)}/>
-        <ConnectionDialog dialect={this.state.dialect} />
+        <ConnectionDialog dialect={this.state.dialect} query={this.query.bind(this)}/>
         <ResultsTable columnNames={this.state.columns} rows={this.state.rows} />
       </div>
     );
