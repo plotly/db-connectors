@@ -307,9 +307,29 @@ const APACHE_DRILL_ATTRIBUTES_SCHEMA = {
     required: ['host','port','bucket', 'accessKeyId','secretAccessKey']
 };
 
+const DATAWORLD_ATTRIBUTES_SCHEMA = {
+    type: 'object',
+    properties:{
+        url: {
+            type: 'string',
+            label: 'Dataset/Project URL',
+            description: `The URL of the dataset or project on data.world`,
+            errorMessage: 'Dataset is required'
+        },
+        token: {
+            type: 'string',
+            label: 'Read/Write API Token',
+            errorMessage: 'S3 Access Key ID is required',
+            description: 'Your data.world read/write token. It can be obtained from https://data.world/settings/advanced'
+        }
+    },
+    required: ['url', 'token']
+};
+
 const SCHEMAS = {
     APACHE_DRILL_ATTRIBUTES_SCHEMA,
     CSV_ATTRIBUTES_SCHEMA,
+    DATAWORLD_ATTRIBUTES_SCHEMA,
     ELASTICSEARCH_ATTRIBUTES_SCHEMA,
     HADOOP_ATTRIBUTES_SCHEMA,
     MSSQL_ATTRIBUTES_SCHEMA,
