@@ -4,7 +4,7 @@ const {SCHEMAS} = require('../../src/common/constants');
 const Validator = require('jsonschema').Validator;
 let v;
 
-describe('Hadopp Schema:', function () {
+describe('Hadoop Schema:', function () {
 
     before(function() {
         v = new Validator();

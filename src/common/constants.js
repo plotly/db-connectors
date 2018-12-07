@@ -210,8 +210,44 @@ const SQLITE_ATTRIBUTES_SCHEMA = {
     required: ['storage']
 };
 
+
+const ELASTICSEARCH_ATTRIBUTES_SCHEMA = {
+    type: 'object',
+    properties:{
+        username: {
+            type: 'string',
+            label: 'Username',
+            description: `
+            These credentials are used to authenticate Elasticsearch instances
+            that are protected with HTTP Basic Auth.
+            You can leave this blank if your instance does not have
+            HTTP Basic Auth.`,
+            errorMessage: 'Username is required'
+        },
+        password: {
+            type: 'string',
+            label: 'Username',
+            errorMessage: 'Password is required'
+        },
+        host: {
+            type: 'string',
+            label: 'Host',
+            errorMessage: 'Host is required'
+        },
+        port: {
+            type: 'number',
+            label: 'Port',
+            errorMessage: 'Port is required',
+            description: 'Server port number (e.g. 3306)'
+        },
+    },
+    required: ['host']
+};
+
+
 const SCHEMAS = {
     CSV_ATTRIBUTES_SCHEMA,
+    ELASTICSEARCH_ATTRIBUTES_SCHEMA,
     HADOOP_ATTRIBUTES_SCHEMA,
     MSSQL_ATTRIBUTES_SCHEMA,
     ORACLE_ATTRIBUTES_SCHEMA,
