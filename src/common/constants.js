@@ -168,10 +168,40 @@ const MSSQL_ATTRIBUTES_SCHEMA = {
     required: ['username', 'password', 'host', 'port', 'database','instanceName', 'connectTimeout', 'requestTimeout']
 };
 
+const ORACLE_ATTRIBUTES_SCHEMA = {
+    type: 'object',
+    properties: {
+        username: {
+            type: 'string',
+            label: 'Username',
+            errorMessage: 'Username is required'
+        },
+        password: {
+            type: 'string',
+            label: 'Username',
+            errorMessage: 'Password is required'
+        },
+        connectionString: {
+            type: 'string',
+            label: 'Connection',
+            errorMessage: 'Connection is required',
+            description: `
+                An Easy Connect string,
+                a Net Service Name from a local 'tnsnames.ora' file or an external naming service,
+                an SID of a local Oracle database instance,
+                or leave empty to connect to the local default database.
+                See https://oracle.github.io/node-oracledb/doc/api.html#connectionstrings for examples.
+            `
+        }
+    },
+    required: ['username','password', 'connectionString']
+};
+
 const SCHEMAS = {
     CSV_ATTRIBUTES_SCHEMA,
     HADOOP_ATTRIBUTES_SCHEMA,
     MSSQL_ATTRIBUTES_SCHEMA,
+    ORACLE_ATTRIBUTES_SCHEMA,
     SQL_ATTRIBUTES_SCHEMA
 };
 
