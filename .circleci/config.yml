@@ -27,5 +27,3 @@ jobs:
       - run: npm install
       - run: npm run lint
       - run: npm run test
-      - run: cd examples/express && npm install
-      - run: cd examples/express && npm run lint
