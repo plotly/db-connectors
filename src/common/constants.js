@@ -245,6 +245,31 @@ const ELASTICSEARCH_ATTRIBUTES_SCHEMA = {
 };
 
 
+const S3_ATTRIBUTES_SCHEMA = {
+    type: 'object',
+    properties:{
+        bucket: {
+            type: 'string',
+            label: 'S3 Bucket',
+            description: `
+            The S3 connection will import CSV files from any
+            directory in your S3 bucket.`,
+            errorMessage: 'S3 Bucket is required'
+        },
+        accessKeyId: {
+            type: 'string',
+            label: 'S3 Access Key ID',
+            errorMessage: 'S3 Access Key ID is required'
+        },
+        secretAccessKey: {
+            type: 'string',
+            label: 'S3 Secret Access Key',
+            errorMessage: 'S3 Secret Access Key is required'
+        }
+    },
+    required: ['bucket', 'accessKeyId','secretAccessKey']
+};
+
 const SCHEMAS = {
     CSV_ATTRIBUTES_SCHEMA,
     ELASTICSEARCH_ATTRIBUTES_SCHEMA,
@@ -252,7 +277,8 @@ const SCHEMAS = {
     MSSQL_ATTRIBUTES_SCHEMA,
     ORACLE_ATTRIBUTES_SCHEMA,
     SQL_ATTRIBUTES_SCHEMA,
-    SQLITE_ATTRIBUTES_SCHEMA
+    SQLITE_ATTRIBUTES_SCHEMA,
+    S3_ATTRIBUTES_SCHEMA
 };
 
 module.exports = {
