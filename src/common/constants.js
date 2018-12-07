@@ -270,7 +270,45 @@ const S3_ATTRIBUTES_SCHEMA = {
     required: ['bucket', 'accessKeyId','secretAccessKey']
 };
 
+
+const APACHE_DRILL_ATTRIBUTES_SCHEMA = {
+    type: 'object',
+    properties:{
+        host: {
+            type: 'string',
+            label: 'Host',
+            errorMessage: 'Host is required'
+        },
+        port: {
+            type: 'number',
+            label: 'Port',
+            errorMessage: 'Port is required',
+            description: 'Server port number (e.g. 3306)'
+        },
+        bucket: {
+            type: 'string',
+            label: 'S3 Bucket',
+            description: `
+            The S3 connection will import CSV files from any
+            directory in your S3 bucket.`,
+            errorMessage: 'S3 Bucket is required'
+        },
+        accessKeyId: {
+            type: 'string',
+            label: 'S3 Access Key ID',
+            errorMessage: 'S3 Access Key ID is required'
+        },
+        secretAccessKey: {
+            type: 'string',
+            label: 'S3 Secret Access Key',
+            errorMessage: 'S3 Secret Access Key is required'
+        }
+    },
+    required: ['host','port','bucket', 'accessKeyId','secretAccessKey']
+};
+
 const SCHEMAS = {
+    APACHE_DRILL_ATTRIBUTES_SCHEMA,
     CSV_ATTRIBUTES_SCHEMA,
     ELASTICSEARCH_ATTRIBUTES_SCHEMA,
     HADOOP_ATTRIBUTES_SCHEMA,
