@@ -197,12 +197,26 @@ const ORACLE_ATTRIBUTES_SCHEMA = {
     required: ['username','password', 'connectionString']
 };
 
+const SQLITE_ATTRIBUTES_SCHEMA = {
+    type: 'object',
+    properties:{
+        storage: {
+            type: 'string',
+            label: 'Path to SQLite File',
+            description: 'Type URL to a CSV file',
+            errorMessage: 'Path is required'
+        }
+    },
+    required: ['storage']
+};
+
 const SCHEMAS = {
     CSV_ATTRIBUTES_SCHEMA,
     HADOOP_ATTRIBUTES_SCHEMA,
     MSSQL_ATTRIBUTES_SCHEMA,
     ORACLE_ATTRIBUTES_SCHEMA,
-    SQL_ATTRIBUTES_SCHEMA
+    SQL_ATTRIBUTES_SCHEMA,
+    SQLITE_ATTRIBUTES_SCHEMA
 };
 
 module.exports = {
