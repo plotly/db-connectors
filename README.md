@@ -4,7 +4,8 @@ an array of columns and matrix of rows. It currently supports connecting to **Re
 
 Follow [@plotlygraphs](https://twitter.com/plotlygraphs) on Twitter for Falcon announcements.
 
-
+## Build Status
+[![CircleCI](https://circleci.com/gh/plotly/db-connectors.svg?style=svg)](https://circleci.com/gh/plotly/db-connectors)
 
 
 ## Documentation
