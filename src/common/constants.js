@@ -80,9 +80,24 @@ const HADOOP_ATTRIBUTES_SCHEMA = {
     required: ['host', 'port', 'timeout']
 
 };
+
+const CSV_ATTRIBUTES_SCHEMA = {
+    type: 'object',
+    properties:{
+        file: {
+            type: 'string',
+            label: 'CSV File',
+            description: 'Type URL to a CSV file',
+            errorMessage: 'CSV File is required'
+        }
+    },
+    required: ['file']
+};
+
 const SCHEMAS = {
     SQL_ATTRIBUTES_SCHEMA,
-    HADOOP_ATTRIBUTES_SCHEMA
+    HADOOP_ATTRIBUTES_SCHEMA,
+    CSV_ATTRIBUTES_SCHEMA
 };
 
 module.exports = {
