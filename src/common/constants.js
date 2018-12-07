@@ -51,8 +51,38 @@ const SQL_ATTRIBUTES_SCHEMA = {
     required: ['username', 'password', 'host', 'port', 'database']
 };
 
+const HADOOP_ATTRIBUTES_SCHEMA = {
+    type: 'object',
+    properties:{
+        host: {
+            type: 'string',
+            label: 'Host',
+            errorMessage: 'Host is required'
+        },
+        port:{
+            type: 'number',
+            label: 'Port',
+            errorMessage: 'Port is required'
+        },
+        database:{
+            type: 'string',
+            label: 'Port',
+            errorMessage: 'Database is not defined',
+            description: 'Database Name (Optional). If database name is not specified, all tables are returned.'
+        },
+        timeout:{
+            type: 'number',
+            label: 'Timeout',
+            errorMessage: 'Database is not defined',
+            description: 'Number of seconds for a request to timeout.'
+        }
+    },
+    required: ['host', 'port', 'timeout']
+
+};
 const SCHEMAS = {
-    SQL_ATTRIBUTES_SCHEMA
+    SQL_ATTRIBUTES_SCHEMA,
+    HADOOP_ATTRIBUTES_SCHEMA
 };
 
 module.exports = {
