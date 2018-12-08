@@ -326,8 +326,51 @@ const DATAWORLD_ATTRIBUTES_SCHEMA = {
     required: ['url', 'token']
 };
 
+
+const ATHENA_ATTRIBUTES_SCHEMA = {
+    type: 'object',
+    properties:{
+        region: {
+            type: 'string',
+            label: 'Region',
+            description: `The AWS region (i.e. us-east-1) where the database resides`,
+            errorMessage: 'Region is required'
+        },
+        accessKeyId: {
+            type: 'string',
+            label: 'S3 Access Key ID',
+            errorMessage: 'S3 Access Key ID is required'
+        },
+        secretAccessKey: {
+            type: 'string',
+            label: 'S3 Secret Access Key',
+            errorMessage: 'S3 Secret Access Key is required'
+        },
+        bucket: {
+            type: 'string',
+            label: 'S3 Bucket',
+            description: `
+            The S3 connection will import CSV files from any
+            directory in your S3 bucket.`,
+            errorMessage: 'S3 Bucket is required'
+        },
+        database: {
+            type: 'string',
+            label: 'Database',
+            errorMessage: 'S3 Secret Access Key is required'
+        },
+        queryInterval: {
+            type: 'number',
+            label: 'Query Interval',
+            errorMessage: 'S3 Secret Access Key is required'
+        },
+    },
+    required: ['region','accessKeyId','secretAccessKey','bucket', 'database']
+};
+
 const SCHEMAS = {
     APACHE_DRILL_ATTRIBUTES_SCHEMA,
+    ATHENA_ATTRIBUTES_SCHEMA,
     CSV_ATTRIBUTES_SCHEMA,
     DATAWORLD_ATTRIBUTES_SCHEMA,
     ELASTICSEARCH_ATTRIBUTES_SCHEMA,
