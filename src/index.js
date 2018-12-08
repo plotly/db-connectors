@@ -1,4 +1,4 @@
-const {DIALECTS, SCHEMAS} = require('./common/constants');
+const {CONNECTION_CONFIG, DIALECTS, SCHEMAS} = require('./common/constants');
 const ApacheDrill = require('./datastores/apachedrill');
 const ApacheImpala = require('./datastores/impala');
 const ApacheLivy = require('./datastores/livy');
@@ -15,6 +15,7 @@ const S3 = require('./datastores/s3');
 const Datastores = require('./datastores/index');
 
 module.exports = {
+    CONNECTION_CONFIG,
     Datastores,
     DIALECTS,
     SCHEMAS,
