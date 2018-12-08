@@ -368,9 +368,34 @@ const ATHENA_ATTRIBUTES_SCHEMA = {
     required: ['region','accessKeyId','secretAccessKey','bucket', 'database']
 };
 
+const BIGQUERY_ATTRIBUTES_SCHEMA = {
+    type: 'object',
+    properties:{
+        projectId: {
+            type: 'string',
+            label: 'Google Project Id',
+            description: `The Google Cloud Project Id`,
+            errorMessage: 'Project Id is required'
+        },
+        database: {
+            type: 'string',
+            label: 'Database',
+            errorMessage: 'Database is required'
+        },
+        keyFilename:{
+            type: 'string',
+            label: 'Key File',
+            description: `The location of the Google Service Account Key File`,
+            errorMessage: 'Key File is required'
+        }
+    },
+    required: ['projectId', 'database','keyFilename']
+};
+
 const SCHEMAS = {
     APACHE_DRILL_ATTRIBUTES_SCHEMA,
     ATHENA_ATTRIBUTES_SCHEMA,
+    BIGQUERY_ATTRIBUTES_SCHEMA,
     CSV_ATTRIBUTES_SCHEMA,
     DATAWORLD_ATTRIBUTES_SCHEMA,
     ELASTICSEARCH_ATTRIBUTES_SCHEMA,
